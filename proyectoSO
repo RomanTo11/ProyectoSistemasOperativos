@@ -1,0 +1,87 @@
+#PROGRAMA MONITOREO DEL SISTEMA
+
+# Función para ver procesos
+funcion_verprocesos() {
+	echo "Mostrando Procesos..."
+	ps
+	echo "Ver procesos en tiempo real..."
+	top
+}
+
+# Función para ver estado de CPU y RAM
+funcion_vercpuram() {
+	echo "Estado de la CPU y RAM..."
+	vmstat
+}
+
+# Función para ver espacio en disco
+funcion_espaciodisco() {
+	echo "Mostrando espacio en el disco..."
+	df -h
+}
+
+# Función para eliminar papelera
+funcion_eliminarpapelera() {
+	echo "Borrando papelera..."
+	rm -rf ~/.local/share/Trash/*
+	echo "Papelerera limpia.."
+}
+
+# Función para ver estado de la red
+funcion_verestadored() {
+	echo "Estado de la red..."
+	ip a
+}
+# Función para eliminar cache
+funcion_eliminarcache() {
+	echo "Eliminando cache del equipo..."
+	sudo rm -rf /var/cache/*
+	echo "Cache eliminado correctamente"
+}
+
+# Función para ver usuarios conectados
+funcion_usconectados() {
+	echo "Mostrando usuarios conectados..."
+	who
+}
+
+# Función para ver información del kernel y sistema
+funcion_infokernelsistema() {
+	echo "Mostrando información de kernel y sistema..."
+	cat /proc/version
+}
+# MENU PRINCIPAL DE EJECUCION
+while true; do
+	clear
+	echo "MONITOREO DEL SISTEMA"
+	echo "1. Mostrar estados de procesos del sistema."
+	echo "2. Mostrar el uso de la CPU y memoria RAM."
+	echo "3. Mostrar el espacio en el disco."
+	echo "4. Limpiar papelera de reciclaje."
+	echo "5. Ver el estado de red."
+	echo "6. Eliminar cache."
+	echo "7. Ver usuarios conectados."
+	echo "8. Ver información del kernel y sistema."
+	echo "9. Salir del sistema."
+	read -p "¿Qué deseas hacer? Opciones (1-9): " option
+	case $option in
+    	1) funcion_verprocesos ;;
+    	2) funcion_vercpuram ;;
+    	3) funcion_espaciodisco ;;
+    	4) funcion_eliminarpapelera ;;
+    	5) funcion_verestadored ;;
+5) funcion_verestadored ;;
+    	6) funcion_eliminarcache ;;
+    	7) funcion_usconectados ;;
+    	8) funcion_infokernelsistema ;;
+    	9) exit ;;
+    	*) echo "Opción no válida, inténtelo nuevamente." ;;
+	esac
+	read -p "Presiona Enter para continuar..."
+done
+
+#Lo único novedoso que use en este script es “case”, que también existe en python  que funciona como condicionales pero no es necesario usar if, elif, else, validar que sea igual a (), solo toma la opcion y ejecuta el codigo dentro de la función.
+
+Funcionamiento del script:
+
+Este script, al ejecutarse, muestra un menú interactivo con 9 opciones, el cual se encarga de hacer una pequeña monitorización del sistema. Incluye opciones como ver procesos, ver el estado de la RAM y el disco, ver el espacio en el disco, eliminar la papelera, ver el estado de la red, eliminar la caché, ver los usuarios conectados y ver información del sistema.
