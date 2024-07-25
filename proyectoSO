@@ -70,7 +70,6 @@ while true; do
     	3) funcion_espaciodisco ;;
     	4) funcion_eliminarpapelera ;;
     	5) funcion_verestadored ;;
-5) funcion_verestadored ;;
     	6) funcion_eliminarcache ;;
     	7) funcion_usconectados ;;
     	8) funcion_infokernelsistema ;;
